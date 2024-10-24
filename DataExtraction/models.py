@@ -8,7 +8,7 @@ class SensorData(models.Model):
     template_id = models.CharField(max_length=100)  # templateId en los datos
 
     # Hora en la que se hizo la medición
-    enqueued_time = models.DateTimeField(auto_now_add=True)  # Almacena el tiempo sin zona horaria
+    enqueued_time = models.DateTimeField()  # enqueuedTime en los datos
 
     # Tipo de sensor y valor de la medición
     tipo_sensor = models.CharField(max_length=50)  # Identifica el tipo de sensor
