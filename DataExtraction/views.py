@@ -19,11 +19,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Acceder a las variables de entorno
-cosmos_url = os.getenv('COSMOS_URL')  # Reemplaza 'COSMOS_URL' por el nombre real que hayas usado
-credential = os.getenv('COSMOS_CREDENTIAL')  
+credential = os.getenv('key')  
 # Configura tu cliente de Azure Cosmos
 
-cosmos_client = CosmosClient(cosmos_url, credential=credential)
+cosmos_client = CosmosClient('https://cocinacosmos4.documents.azure.com:443/', credential=credential)
 
 
 @api_view(['GET'])
