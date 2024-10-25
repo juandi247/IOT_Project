@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-gfv_t(wj)s91b8ac%a5rg41yzbs*%f*g1x6fq_hi#1dpm+vm+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['zealous-renewal-production.up.railway.app',  # Agrega el dominio de Railway aquí
+]
 
 
 # Application definition
