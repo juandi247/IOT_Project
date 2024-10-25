@@ -1,6 +1,8 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev 
     volumes:
       - .:/app  # Monta el directorio actual en /app del contenedor
     ports:
