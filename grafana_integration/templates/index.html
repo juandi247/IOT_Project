@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Slider Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            width: 400vw; /* 4 slices, each taking 100% of viewport width */
+            height: 100vh;
+            transition: transform 0.5s ease;
+        }
+
+        .slice {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+        }
+
+        .slice:nth-child(1) {
+            background-color: white;
+            color: #0078D4;
+        }
+
+        .slice:nth-child(2) {
+            background-color: #0078D4;
+            color: white;
+        }
+
+        .slice:nth-child(3) {
+            background-color: white;
+            color: #0078D4;
+        }
+
+        .slice:nth-child(4) {
+            background-color: #0078D4;
+            color: white;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .controls button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button onclick="moveLeft()">◀</button>
+        <button onclick="moveRight()">▶</button>
+    </div>
+
+    <div class="container" id="slider">
+        <div class="slice">Slice 1</div>
+        <div class="slice">Slice 2</div>
+        <div class="slice">Slice 3</div>
+        <div class="slice">Slice 4</div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slider = document.getElementById('slider');
+        const totalSlices = document.querySelectorAll('.slice').length;
+
+        function moveLeft() {
+            currentIndex = (currentIndex === 0) ? totalSlices - 1 : currentIndex - 1;
+            updateSlider();
+        }
+
+        function moveRight() {
+            currentIndex = (currentIndex + 1) % totalSlices;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const offset = currentIndex * -100;
+            slider.style.transform = `translateX(${offset}vw)`;
+        }
+    </script>
+</body>
+</html>

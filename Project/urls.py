@@ -23,7 +23,6 @@ urlpatterns = [
     re_path('data/',include('DataExtraction.urls')),
     re_path('grafana/', include('grafana_integration.urls')),  # Incluye las rutas de la nueva app
 
-
 ]
 
 
