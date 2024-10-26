@@ -9,5 +9,15 @@ services:
       - "8000:8000"  # Expone el puerto 8000
     env_file:
       - .env  # Carga las variables del archivo .env
-   
+    depends_on:
+      - db  # Espera que el servicio de base de datos esté listo
 
+  db:
+    image: postgres:latest  # Usa la última imagen de PostgreSQL
+    restart: always
+    environment:
+      POSTGRES_DB: postgres  # Nombre de la base de datos
+      POSTGRES_USER: postgres  # Usuario de la base de datos
+      POSTGRES_PASSWORD: 12345  # Contraseña de la base de datos
+    ports:
+      - "5433:5432"  # Expone el puerto 5432 en el contenedor como 5433 en la máquina local

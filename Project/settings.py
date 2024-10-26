@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-gfv_t(wj)s91b8ac%a5rg41yzbs*%f*g1x6fq_hi#1dpm+vm+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zealous-renewal-production.up.railway.app',  # Agrega el dominio de Railway aquí
-]
+ALLOWED_HOSTS = ['zealous-renewal-production.up.railway.app','localhost', '127.0.0.1']
 
 
 # Application definition
@@ -45,6 +44,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Añadir aquí whitenoise
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -146,6 +147,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

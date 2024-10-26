@@ -18,6 +18,7 @@ COPY . .
 RUN python manage.py collectstatic
 
 
+
 # Expone el puerto que usará la aplicación
 EXPOSE 8000
 
