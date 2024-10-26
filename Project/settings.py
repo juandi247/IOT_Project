@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'DataExtraction',
     'Visualizacion',
+    'grafana_integration',
+
 ]
 
 MIDDLEWARE = [
@@ -82,10 +84,11 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST': 'db',  # o la IP del servidor, si no es local
-        'PORT': '5432',  # El puerto por defecto de PostgreSQL es 5432
+        'HOST': 'localhost',  
+        'PORT': '5432',  # El puerto dentro del contenedor
     }
 }
+
 
 
 # Password validation
