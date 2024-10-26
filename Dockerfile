@@ -14,6 +14,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia el resto de la aplicación
 COPY . .
 
+
+RUN python manage.py collectstatic
+
+
 # Expone el puerto que usará la aplicación
 EXPOSE 8000
 
