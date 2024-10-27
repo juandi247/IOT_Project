@@ -23,7 +23,7 @@ class SensorData(models.Model):
 
 class SensorFisico(models.Model):
     id_registro = models.AutoField(primary_key=True)  # Genera un ID automáticamente
-    fecha_registro = models.DateTimeField(auto_now_add=True)  # Fecha de registro
+    fecha_registro = models.DateTimeField()  # Fecha de registro
     valor_temperatura = models.FloatField()  # Valor de temperatura
     valor_humedad = models.FloatField()  # Valor de humedad
 
