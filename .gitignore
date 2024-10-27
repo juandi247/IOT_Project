@@ -1,2 +1,3 @@
 entornojuandi/
 .env
+*.pyc
