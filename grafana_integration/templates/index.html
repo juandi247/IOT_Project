@@ -91,6 +91,7 @@
             margin-top: 5px;
             /* Espaciado reducido */
         }
+
         .final-title {
             font-size: 1.3em;
             /* Tamaño ajustado más pequeño */
@@ -111,7 +112,7 @@
             position: absolute;
             top: 20px;
             left: 30px;
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: 700;
             color: #fff;
             text-align: left;
@@ -121,29 +122,29 @@
             position: absolute;
             top: 100px;
             left: 30px;
-            font-size: 1.1em;
+            font-size: 1.3em;
             font-weight: normal;
             color: #fff;
             text-align: left;
-            max-width: 550px;
+            max-width: 650px;
         }
 
         .parrafo-text-right {
             position: absolute;
             top: 100px;
             right: 30px;
-            font-size: 1.1em;
+            font-size: 1.3em;
             font-weight: normal;
             color: #0078D4;
             text-align: right;
-            max-width: 550px;
+            max-width: 650px;
         }
 
         .header-text-right {
             position: absolute;
             top: 20px;
             right: 30px;
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: 700;
             color: #0078D4;
             text-align: right;
@@ -182,7 +183,7 @@
             font-weight: bold;
         }
 
-        .button_final{
+        .button_final {
             top: 30px;
             right: 10px;
             background-color: #333;
@@ -195,6 +196,7 @@
             cursor: pointer;
             font-weight: bold;
         }
+
         .button_final:hover {
             background-color: #555;
         }
@@ -239,15 +241,20 @@
             <a href="https://drive.google.com/file/d/your_pdf_id/view" target="_blank" class="top-button">📄 Ver PDF</a>
             <div class="header-text">Bienvenido al Futuro del Monitoreo de Cocinas</div>
             <div class="parrafo-text">
-                Nuestro enfoque innovador en el monitoreo de cocinas integra datos en tiempo real sobre temperatura, humedad, fugas de gas y calidad del aire. Esto permite mantener un control preciso y constante, garantizando un entorno más seguro y eficiente para optimizar el rendimiento.
+                Nuestro enfoque innovador en el monitoreo de cocinas integra datos en tiempo real sobre temperatura,
+                humedad, fugas de gas y calidad del aire. Esto permite mantener un control preciso y constante,
+                garantizando un entorno más seguro y eficiente para optimizar el rendimiento.
             </div>
             <div class="bottom-right-image">🍴🧆</div>
         </div>
         <div class="slice">
-            <a href="https://www.youtube.com/watch?v=your_video_id" target="_blank" class="top-button-right">▶ Ver Video</a>
+            <a href="https://www.youtube.com/watch?v=your_video_id" target="_blank" class="top-button-right">▶ Ver
+                Video</a>
             <div class="header-text-right">Simulación y Casos de Uso</div>
             <div class="parrafo-text-right">
-                La simulación es una herramienta poderosa que se utiliza para modelar procesos y sistemas del mundo real. En la industria de la cocina, se usa para predecir cómo diferentes variables, como la temperatura y la calidad del aire, pueden afectar el rendimiento general de la cocina.
+                La simulación es una herramienta poderosa que se utiliza para modelar procesos y sistemas del mundo
+                real. En la industria de la cocina, se usa para predecir cómo diferentes variables, como la temperatura
+                y la calidad del aire, pueden afectar el rendimiento general de la cocina.
             </div>
             <div class="bottom-left-image">🛠️🤓</div>
         </div>
@@ -262,14 +269,24 @@
         let currentIndex = 0;
         const slider = document.getElementById('slider');
         const totalSlices = document.querySelectorAll('.slice').length;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         function moveLeft() {
-            currentIndex = (currentIndex === 0) ? totalSlices - 1 : currentIndex - 1;
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlices - 1; // Ir al último slice si se está en el primero
+            }
             updateSlider();
         }
 
         function moveRight() {
-            currentIndex = (currentIndex + 1) % totalSlices;
+            if (currentIndex < totalSlices - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Volver al primer slice si se está en el último
+            }
             updateSlider();
         }
 
@@ -278,10 +295,45 @@
             slider.style.transform = `translateX(${offset}vw)`;
         }
 
+        // Handle swipe
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                moveRight();
+            }
+            if (touchEndX > touchStartX + 50) {
+                moveLeft();
+            }
+        }
+
+        // Handle arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault(); // Evitar el comportamiento por defecto
+                moveLeft();
+            }
+            if (e.key === 'ArrowRight') {
+                e.preventDefault(); // Evitar el comportamiento por defecto
+                moveRight();
+            }
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
             updateSlider();
         });
+
+
+
     </script>
+
 </body>
 
 </html>
