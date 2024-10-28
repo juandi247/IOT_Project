@@ -1,29 +1,68 @@
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        background-color: #000; /* Color de fondo para que coincida */
-        overflow: hidden; /* Evita barras de desplazamiento */
-    }
+<!DOCTYPE html>
+<html lang="es">
 
-    .grafana-container {
-        width: 100vw; /* Ocupa todo el ancho de la ventana */
-        height: 100vh; /* Ocupa todo el alto de la ventana */
-        background-color: #000; /* Fondo negro */
-        overflow: hidden; /* Elimina scroll */
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+        }
 
-    iframe {
-        border: none;
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-</style>
+        .grafana-container {
+            width: 100vw;
+            height: calc(100vh - 50px); /* Ajusta la altura para no superponer el botón */
+            background-color: #000;
+            overflow: hidden;
+        }
 
-<div class="grafana-container">
-    <iframe
-        src="http://localhost:3000/goto/MSXQAIZNg?orgId=1"
-        frameborder="0">
-    </iframe>
-</div>
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .refresh-button {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #191B1F;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1em;
+            cursor: pointer;
+            z-index: 100;
+            border: none;
+            outline: none;
+        }
+
+        .refresh-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="refresh-button" onclick="refreshData()">Actualizar Datos</button>
+    <div class="grafana-container">
+        <iframe src="http://localhost:3000/goto/MSXQAIZNg?orgId=1" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        function refreshData() {
+            fetch('https://zealous-renewal-production.up.railway.app/data/extract_data_azure', {
+                method: 'GET'
+            })
+            .catch(error => {
+                console.error('Error:', error); // Solo para ver errores en la consola si ocurre algo.
+            });
+        }
+    </script>
+</body>
+
+</html>
