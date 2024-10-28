@@ -1,3 +1,4 @@
 entornojuandi/
 .env
 *.pyc
+__pycache__/
