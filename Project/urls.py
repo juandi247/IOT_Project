@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 from django.urls import path, include  # Asegúrate de importar 'include'
+from grafana_integration import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('data/',include('DataExtraction.urls')),
-    re_path('grafana/', include('grafana_integration.urls')),  # Incluye las rutas de la nueva app
+    re_path('grafana/', include('grafana_integration.urls')),  
+   path('', views.index, name='index'),  # Ruta para la raíz que llama a la vista index
+# Incluye las rutas de la nueva app
 
 ]
 
