@@ -112,7 +112,7 @@
             position: absolute;
             top: 20px;
             left: 30px;
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: 700;
             color: #fff;
             text-align: left;
@@ -122,7 +122,7 @@
             position: absolute;
             top: 100px;
             left: 30px;
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: normal;
             color: #fff;
             text-align: left;
@@ -133,7 +133,7 @@
             position: absolute;
             top: 100px;
             right: 30px;
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: normal;
             color: #0078D4;
             text-align: right;
@@ -144,7 +144,7 @@
             position: absolute;
             top: 20px;
             right: 30px;
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: 700;
             color: #0078D4;
             text-align: right;
@@ -208,7 +208,7 @@
         .top-button-right {
             position: absolute;
             top: 30px;
-            left: 10px;
+            left: 20px;
             background-color: #333;
             color: #fff;
             padding: 8px 15px;
@@ -222,6 +222,112 @@
 
         .top-button-right:hover {
             background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+
+            .header-text {
+                font-size: 1.3em;
+                top: 15px;
+                right: 180px;
+            }
+
+            .header-text-right {
+                font-size: 1.3em;
+                top: 15px;
+                left: 180px;
+            }
+
+            .parrafo-text,
+            .parrafo-text-right {
+                font-size: 0.9em;
+                top: 150px;
+                max-width: 500px;
+            }
+
+            .controls button {
+                font-size: 0.9em;
+            }
+
+            .top-button {
+                position: absolute;
+                top: 45px;
+                /* Ajuste para estar en la esquina superior derecha */
+                right: 1Opx;
+                transform: translate(0, 0);
+                /* Asegura que no esté centrado */
+            }
+
+            .top-button-right {
+                position: absolute;
+                top: 45px;
+                /* Ajuste para estar en la esquina superior derecha */
+                left: 15px;
+                transform: translate(0, 0);
+                /* Asegura que no esté centrado */
+            }
+
+            .bottom-right-image,
+            .bottom-left-image {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .header-text,
+            .header-text-right {
+                font-size: 1em;
+                top: 10px;
+                left: 20px;
+                right: 20px;
+            }
+
+            .parrafo-text,
+            .parrafo-text-right {
+                font-size: 0.7em;
+                top: 120px;
+                max-width: 300px;
+            }
+
+            .controls button {
+                font-size: 0.8em;
+            }
+
+            .top-button {
+                position: absolute;
+                top: auto;
+                /* Desactiva la posición superior */
+                bottom: 30px;
+                /* Coloca el botón debajo del texto */
+                right: 300px;
+                /* Alinea el botón a la izquierda */
+                transform: translate(0, 0);
+            }
+
+            .top-button-right {
+                position: absolute;
+                top: auto;
+                bottom: 30px;
+                left: 280px;
+                transform: translate(0, 0);
+            }
+
+            .bottom-right-image,
+            .bottom-left-image {
+                font-size: 2em;
+                width: 150px;
+            }
+
+            .project-emoji {
+                font-size: 3em;
+                margin-bottom: -20px;
+            }
+
+            .project-title,
+            .final-title {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -245,16 +351,17 @@
                 humedad, fugas de gas y calidad del aire. Esto permite mantener un control preciso y constante,
                 garantizando un entorno más seguro y eficiente para optimizar el rendimiento.
             </div>
-            <div class="bottom-right-image">🍴🧆</div>
+            <div class="bottom-right-image">🍴🍟</div>
         </div>
         <div class="slice">
             <a href="https://www.youtube.com/watch?v=your_video_id" target="_blank" class="top-button-right">▶ Ver
                 Video</a>
-            <div class="header-text-right">Simulación y Casos de Uso</div>
+            <div class="header-text-right">Simulación VR y Monitorización en Vivo</div>
             <div class="parrafo-text-right">
-                La simulación es una herramienta poderosa que se utiliza para modelar procesos y sistemas del mundo
-                real. En la industria de la cocina, se usa para predecir cómo diferentes variables, como la temperatura
-                y la calidad del aire, pueden afectar el rendimiento general de la cocina.
+                La simulación en realidad virtual permite modelar procesos clave en la cocina, anticipando cómo
+                variables como la temperatura y la calidad del aire afectan su rendimiento. Estos datos se visualizan en
+                el dashboard, facilitando el control y optimización en tiempo real del entorno de trabajo.
+
             </div>
             <div class="bottom-left-image">🛠️🤓</div>
         </div>
