@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-gfv_t(wj)s91b8ac%a5rg41yzbs*%f*g1x6fq_hi#1dpm+vm+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zealous-renewal-production.up.railway.app','localhost', '127.0.0.1','https://iot-kitchen40.up.railway.app']
+ALLOWED_HOSTS = ['zealous-renewal-production.up.railway.app','localhost', '127.0.0.1','iot-kitchen40.up.railway.app']
 
 
 # Application definition
