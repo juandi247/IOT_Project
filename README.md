@@ -1,6 +1,7 @@
 # 🌟 Cocina 4.0: Monitoreo Inteligente de Cocinas 🌟
 
 ¡Bienvenido a **Cocina 4.0**! Esta aplicación te permite monitorear y controlar las condiciones ambientales en tu cocina utilizando el Internet de las Cosas (IoT) y la nube.
+Link: https://iot-kitchen40.up.railway.app
 
 ## 🚀 Funcionalidades
 
